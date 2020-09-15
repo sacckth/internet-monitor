@@ -7,5 +7,5 @@ DL=$(echo $SPEED_TEST_RES | awk '{print $5}')
 UL=$(echo $SPEED_TEST_RES | awk '{print $8}')
 PING=$(echo $SPEED_TEST_RES | awk '{print $2}')
 #set -x
-echo "$DT-Resultados #  Ping: ${PING}ms Download:${DL}Mbps Upload:${UL}Mbps" | tee -a $LOG_FILE
 [[ -z "$DL" ]] && { DL=0; UL=0; PING=0; }
+echo "$DT-Resultados #  Ping: ${PING}ms Download:${DL}Mbps Upload:${UL}Mbps" | tee -a $LOG_FILE
