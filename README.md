@@ -21,7 +21,7 @@ $ crontab -e
 0 * * * * $HOME/internet-monitor/internet-monitor.sh >/dev/null 2>&1
 ```
 (editor VIM, hay que presionar "`i`" para poder entrar a modo de edición (insert)
-(salir del editor VIM con `wq!`) -> write + quit
+(salir del editor VIM con `:wq!`) -> write + quit
 
 6. verificar que el cron esta cargado:
 ```
