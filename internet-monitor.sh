@@ -1,7 +1,7 @@
 #!/bin/bash
-LOG_FILE="./internet_test_$(hostname).log"
+LOG_FILE="$HOME/internet_test_$(hostname).log"
 DT=$(date '+%Y-%m-%dT%H:%M:%S')
-SPEED_TEST_RES=$(python3 ./speedtest-cli --simple 2>/dev/null)
+SPEED_TEST_RES=$(python3 $HOME/internet-monitor/speedtest-cli --simple 2>/dev/null)
 #set -o xtrace
 DL=$(echo $SPEED_TEST_RES | awk '{print $5}')
 UL=$(echo $SPEED_TEST_RES | awk '{print $8}')
