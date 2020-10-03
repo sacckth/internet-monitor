@@ -1,11 +1,10 @@
 #!/bin/bash
-LOG_FILE="$HOME/internet_test_$(hostname).log"
+LOG_FILE="$HOME/internet_test_$(hostname).csv"
 DT=$(date '+%Y-%m-%dT%H:%M:%S')
-SPEED_TEST_RES=$(python3 $HOME/internet-monitor/speedtest-cli --simple 2>/dev/null)
-#set -o xtrace
-DL=$(echo $SPEED_TEST_RES | awk '{print $5}')
-UL=$(echo $SPEED_TEST_RES | awk '{print $8}')
-PING=$(echo $SPEED_TEST_RES | awk '{print $2}')
-#set -x
-[[ -z "$DL" ]] && { DL=0; UL=0; PING=0; }
-echo "$DT-Resultados #  Ping: ${PING}ms Download:${DL}Mbps Upload:${UL}Mbps" | tee -a $LOG_FILE
+if test -f "$LOG_FILE"; then
+    python3 $HOME/internet-monitor/speedtest-cli --csv >> $LOG_FILE
+else
+    #Inlcude header on first row:
+    python3 $HOME/internet-monitor/speedtest-cli --csv-header > $LOG_FILE
+    python3 $HOME/internet-monitor/speedtest-cli --csv >> $LOG_FILE
+fi
