@@ -30,6 +30,15 @@ $ crontab -l
 ```
 7. Un archivo con la información debe de ser generado:
 ```
-$ cat internet_test_*.log
-2020-09-15T17:58:55-Resultados #  Ping: 4.626ms Download:170.49Mbps Upload:94.44Mbps
+$ cat internet_test_*.csv
+Server ID,Sponsor,Server Name,Timestamp,Distance,Ping,Download,Upload,Share,IP Address
+2848,Cu.be Solutions,Diegem,2020-10-03T17:59:08.233631Z,3.4748759144932597,41.764,3618064.9478024715,4243740.158341169,,10.10.10.10
+```
+o
+```
+csvtool readable internet_test_*.csv | view -
+Server ID Sponsor                   Server Name           Timestamp                   Distance           Ping  Download           Upload            Share IP Address
+17108     INFINITUM                 Ciudad Nezahualcoyotl 2020-10-03T17:40:23.733048Z 4.745172453975609  9.611 202611272.06444505 47608491.30210417       192.168.1.1
+2047      AXTEL                     Mexico City           2020-10-03T17:50:01.609228Z 12.492815979786302 8.536 201610165.69088763 80639706.36892192       192.168.1.1
+17108     INFINITUM                 Ciudad Nezahualcoyotl 2020-10-03T17:56:28.862731Z 4.745172453975609  8.582 202559347.01085573 66416104.06181754       192.168.1.1
 ```
